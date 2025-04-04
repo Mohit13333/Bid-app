@@ -35,6 +35,10 @@ export const io = new Server(server, {
     origin: "https://bid-app-1.onrender.com",
   },
 });
+app.use((req, res, next) => {
+  console.log("Incoming origin:", req.headers.origin);
+  next();
+});
 
 app.use(express.json());
 app.use(cors({ origin: "https://bid-app-1.onrender.com", credentials: true }));
