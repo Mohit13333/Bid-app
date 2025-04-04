@@ -32,12 +32,12 @@ const app = express();
 const server = http.createServer(app);
 export const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://bid-app-1.onrender.com",
   },
 });
 
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://bid-app-1.onrender.com", credentials: true }));
 app.use(cookieParser());
 app.use(express.static(join(__dirname, './dist')));
 app.get('*', (req, res) => {
